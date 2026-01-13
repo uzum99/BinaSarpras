@@ -11,8 +11,7 @@ html {
 
 body {
   font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-  background: #f8f8f8;
-  color: #4a4a4a;
+  background: #eef3fc;
   line-height: 1.5;
 }
 
@@ -59,4 +58,23 @@ nav a:hover {
 .logo-icon {
     width: 70px;
   height: 70px;
+}
+
+/* ==== SECTION ==== */
+#layanan {
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 60px;
+  padding: 60px 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 20px rgba(0,0,0,0.04);
+}
+
+h2 {
+  
+  color: #5e9de6;
+  text-align: center;
 }
