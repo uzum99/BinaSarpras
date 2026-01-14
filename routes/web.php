@@ -9,3 +9,4 @@ Route::get('/', function () {
 
 //SISWA
 Route::get('siswa', [SiswaController::class, 'index']);
+Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');

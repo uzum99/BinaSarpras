@@ -10,21 +10,7 @@
 </head>
 
 <body>
-  <!--
-    <header>
-      <div class="container header-container">
-        <img src="assets/logo_icon.png" alt="Logo Icon" class="logo-icon" />
-         <div class="collapse navbar-collapse d-flex justify-content-center">
-          <nav>
-            <a href="#about">Beranda</a>
-            <a href="#education">Layanan</a>
-            <a href="#experience">Tentang Kami</a>
-            <a href="#skills">Aduan Sarpras</a>
-          </nav>
-        </div>
-      </div>
-    </header> -->
-
+ 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">BinaSarpras</a>
@@ -44,8 +30,8 @@
           </li>
           <li class="nav-item">
             <button class="btn btn-primary d-inline-flex align-items-center" type="button">
-              <a href="{{ route('tiket-aduan') }}" >
-              Aduan Sarpras </a>
+              <i class="fa-solid fa-comment-dots"></i>
+              Aduan Sarpras
             </button>
           </li>
         </ul>
@@ -53,40 +39,8 @@
     </div>
   </nav>
 
-  <!-- Corousel/Foto slide -->
-  <div id="carouselExampleCaptions" class="carousel slide">
-
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/foto1.jpg" class="d-block w-100" alt="foto slide 1">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>First slide label</h3>
-          <p>Some representative placeholder content for the first slide.</p>
-          <button class="btn btn-primary d-inline-flex align-items-center" type="button">
-            Aduan Sarpras
-          </button>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="assets/foto2.jpg" class="d-block w-100" alt="foto slide 2">
-        <div class="carousel-caption d-none d-md-block">
-          <h3>Second slide label</h3>
-          <p>Some representative placeholder content for the second slide.</p>
-          <button class="btn btn-primary d-inline-flex align-items-center" type="button">
-            Aduan Sarpras
-          </button>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+  <!-- Gambar Halaman Cek Tiket Aduan -->
+  <img src="assets/hero-1.png" class="img-fluid" alt="Gambar Tiket Aduan" >
 
   <!-- Main -->
   <main class="container">
@@ -128,7 +82,7 @@
   </main>
   <!-- Footer -->
   <footer class="py-3 my-4">
-    <p class="text-center text-body-secondary">© 2026 LAB RPL, SMK Muhammadiyah 3 Tegaldlimo</p>
+    <p class="text-center text-body-secondary">© 2026 LAB RPL, SMK Muh 3 Tegaldlimo</p>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

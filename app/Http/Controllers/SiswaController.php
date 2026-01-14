@@ -10,4 +10,9 @@ class SiswaController extends Controller
     {
         return view('siswa.index');
     }
+
+    public function tiket()
+    {
+        return view('siswa.tiket-aduan');
+    }
 }
