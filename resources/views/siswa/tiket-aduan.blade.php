@@ -29,10 +29,7 @@
             <a class="nav-link" href="#tentangkami">Tentang Kami</a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-primary d-inline-flex align-items-center" type="button">
-              <i class="fa-solid fa-comment-dots"></i>
-              Aduan Sarpras
-            </button>
+            <a href="{{ route('tiket-aduan') }}" class="btn btn-primary">Aduan Suara</a>
           </li>
         </ul>
       </div>
@@ -40,43 +37,13 @@
   </nav>
 
   <!-- Gambar Halaman Cek Tiket Aduan -->
-  <img src="assets/hero-1.png" class="img-fluid" alt="Gambar Tiket Aduan" >
+  <img src="assets/hero-1.png" class="img-fluid mx-auto d-block" alt="Gambar Tiket Aduan" style="max-width: 500px;">
+                                                                                                                                                                     
 
   <!-- Main -->
   <main class="container">
-    <section id="layanan">
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-            <svg class="bi" width="1em" height="1em" aria-hidden="true">
-              <use xlink:href="#collection"></use>
-            </svg>
-          </div>
-          <h6 class="fs-2 text-body-emphasis">Layanan Pengaduan Sarana dan Prasarana</h6>
-          <p>Menyediakan fasilitas bagi siswa untuk melaporkan kerusakan atau permasalahan sarana dan prasarana sekolah secara digital, disertai deskripsi dan dokumentasi pendukung. Setiap aduan tercatat dan dapat dipantau status tindak lanjutnya secara transparan.</p>
-        </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"> <svg class="bi" width="1em" height="1em" aria-hidden="true">
-              <use xlink:href="#people-circle"></use>
-            </svg> </div>
-          <h6 class="fs-2 text-body-emphasis">Layanan Aspirasi dan Usulan Pengembangan</h6>
-          <p>Menjadi wadah bagi siswa untuk menyampaikan aspirasi, saran, atau usulan pengembangan sarana dan prasarana sekolah guna mendukung kenyamanan dan kualitas proses pembelajaran.</p>
-        </div>
-        <div class="feature col">
-          <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3"> <svg class="bi" width="1em" height="1em" aria-hidden="true">
-              <use xlink:href="#toggles2"></use>
-            </svg> </div>
-          <h6 class="fs-2 text-body-emphasis">Layanan Monitoring dan Tindak Lanjut</h6>
-          <p>Memfasilitasi pihak sekolah (admin) dalam mengelola aduan dan aspirasi, memberikan umpan balik, serta memperbarui status penanganan sehingga siswa dapat mengetahui progres penyelesaian secara akuntabel.</p>
-        </div>
-      </div>
-    </section>
+    <section id="">
 
-    <section id="tentangkami">
-      <h2>BinaSarpras</h2>
-      <p>Bina Sarpras adalah platform digital yang dirancang untuk mendukung pengelolaan serta pengembangan sarana dan prasarana sekolah secara partisipatif dan transparan. Aplikasi ini menjadi wadah bagi siswa untuk menyampaikan aduan maupun aspirasi terkait kondisi sarana dan prasarana sekolah secara mudah dan terstruktur.</p>
-      <p>Melalui Bina Sarpras, setiap aduan dan aspirasi yang disampaikan dapat dipantau status tindak lanjutnya secara real time. Pihak sekolah sebagai admin dapat mengelola laporan, memberikan umpan balik, serta melakukan monitoring penanganan sarana dan prasarana secara sistematis.</p>
-      <p>Dengan adanya Bina Sarpras, diharapkan tercipta lingkungan sekolah yang lebih nyaman, aman, dan mendukung proses pembelajaran, sekaligus menumbuhkan budaya peduli, tanggung jawab, dan komunikasi yang positif antara siswa dan pihak sekolah.</p>
     </section>
 
   </main>

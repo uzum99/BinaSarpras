@@ -20,6 +20,7 @@ body {
   max-width: 1100px;
   margin: auto;
   padding: 0 20px;
+  
 }
 
 /* ==== HEADER ==== */
@@ -84,3 +85,4 @@ h2 {
   width: 100;
   align-items: center;
 }
+
