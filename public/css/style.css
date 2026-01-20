@@ -86,3 +86,14 @@ h2 {
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+}
+
+.tiket {
+  text-align: center;
+}
+
+.banner_search_form {
+  width: 50;
+}

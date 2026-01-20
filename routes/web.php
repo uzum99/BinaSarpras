@@ -8,5 +8,6 @@ Route::get('/', function () {
 });
 
 //SISWA
-Route::get('siswa', [SiswaController::class, 'index']);
+Route::get('home', [SiswaController::class, 'home'])->name('home');
+Route::get('about', [SiswaController::class, 'about'])->name('about');
 Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');
