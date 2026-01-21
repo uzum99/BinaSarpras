@@ -57,7 +57,7 @@ nav a:hover {
 }
 
 .logo-icon {
-    width: 70px;
+  width: 70px;
   height: 70px;
 }
 
@@ -96,4 +96,9 @@ h1 {
 
 .banner_search_form {
   width: 50;
+}
+
+.card {
+  padding: 30px 20px;
+
 }
