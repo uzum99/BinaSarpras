@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">BinaSarana</a>
-      <img src="assets/logo_icon.png" alt="Logo Icon" class="logo-icon" />
+      <img src="{{ asset('img/logo_icon.png') }}" alt="Logo Icon" class="logo-icon" />
 
       <!-- Tambahkan kelas d-flex justify-content-center dan sesuaikan lebar container -->
       <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
@@ -17,6 +17,6 @@
           </li>
         </ul>
       </div>
-      <a href="#" class="btn btn-light">Login Admin</a>
+      <a href="{{ route('login') }}" class="btn btn-light">Login Admin</a>
     </div>
   </nav>

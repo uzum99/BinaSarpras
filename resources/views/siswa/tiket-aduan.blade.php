@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('content')
 
 <!-- Main -->
 <main class="container">
   <section id="cek-tiket">
-    <img src="assets/hero-1.png" class="img-fluid mx-auto d-block" alt="Gambar Tiket Aduan" style="max-width: 500px;">
+    <img src="{{ asset('img/hero-1.png') }}" class="img-fluid mx-auto d-block" alt="Gambar Tiket Aduan" style="max-width: 500px;">
     <h1>Lacak Tiket Aduan</h1>
     <p class="tiket">Silahkan masukkan nomer tiket anda untuk melihat proses tiket aduan.</p>
 

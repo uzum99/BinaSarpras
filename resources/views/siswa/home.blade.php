@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.main')
 
 @section('content')
 <!-- Corousel/Foto slide -->
@@ -6,7 +6,7 @@
 
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="assets/foto1.jpg" class="d-block w-100" alt="foto slide 1">
+            <img src="{{ asset('img/foto1.jpg') }}" class="d-block w-100" alt="foto slide 1">
             <div class="carousel-caption d-none d-md-block">
                 <h3>First slide label</h3>
                 <p>Some representative placeholder content for the first slide.</p>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="assets/foto2.jpg" class="d-block w-100" alt="foto slide 2">
+            <img src="{{ asset('img/foto2.jpg') }}" class="d-block w-100" alt="foto slide 2">
             <div class="carousel-caption d-none d-md-block">
                 <h3>Second slide label</h3>
                 <p>Some representative placeholder content for the second slide.</p>
