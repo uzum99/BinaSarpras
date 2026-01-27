@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AduanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -20,3 +21,5 @@ Route::resource('aduan', AduanController::class);
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
 Route::get('register', [RegisterController::class, 'register'])->name('register');
+
+Route::resource('admin', AdminController::class);
