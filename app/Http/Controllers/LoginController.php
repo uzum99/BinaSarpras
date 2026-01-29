@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('admin.dashboard');
+            return redirect('admin.aduan.index');
         }else{
             return view('admin.login');
         }

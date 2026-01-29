@@ -20,6 +20,4 @@ Route::resource('aduan', AduanController::class);
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
-Route::get('register', [RegisterController::class, 'register'])->name('register');
-
 Route::resource('admin', AdminController::class);
