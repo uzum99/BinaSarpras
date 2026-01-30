@@ -17,6 +17,6 @@
           </li>
         </ul>
       </div>
-      <a href="{{ route('login') }}" class="btn btn-light">Sign-in Admin</a>
+      <a href="{{ route('login') }}" class="btn btn-light">Login Admin</a>
     </div>
   </nav>

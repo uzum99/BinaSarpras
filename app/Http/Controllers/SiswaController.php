@@ -8,16 +8,16 @@ class SiswaController extends Controller
 {
     public function home()
     {
-        return view('siswa.home');
+        return view('pages.siswa.home');
     }
 
     public function about()
     {
-        return view('siswa.about');
+        return view('pages.siswa.about');
     }
 
     public function tiket()
     {
-        return view('siswa.aduan.index');
+        return view('pages.siswa.aduan.index');
     }
 }

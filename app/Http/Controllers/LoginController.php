@@ -12,7 +12,7 @@ class LoginController extends Controller
         if (Auth::check()) {
             return redirect('admin.aduan.index');
         }else{
-            return view('admin.login');
+            return view('pages.admin.login');
         }
     }
 }

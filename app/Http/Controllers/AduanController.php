@@ -19,7 +19,7 @@ class AduanController extends Controller
      */
     public function create()
     {
-        return view ('aduan.create-tiket');
+        return view ('pages.siswa.aduan.create');
     }
 
     /**
