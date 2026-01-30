@@ -13,7 +13,7 @@ Route::get('/', function () {
 //SISWA
 Route::get('home', [SiswaController::class, 'home'])->name('home');
 Route::get('about', [SiswaController::class, 'about'])->name('about');
-Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');
+//Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');
 
 Route::resource('aduan', AduanController::class);
 

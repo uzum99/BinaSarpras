@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\M_Aduan;
+use App\Models\M_Kategori;
+use App\Models\M_Siswa;
+use Illuminate\Support\Str;
+
 
 class AduanController extends Controller
 {
@@ -11,7 +16,7 @@ class AduanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.siswa.aduan.index');
     }
 
     /**
@@ -19,7 +24,8 @@ class AduanController extends Controller
      */
     public function create()
     {
-        return view ('pages.siswa.aduan.create');
+        $kategori = M_Kategori::all();
+        return view ('pages.siswa.aduan.create', compact('kategori'));
     }
 
     /**
@@ -27,7 +33,44 @@ class AduanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'NIS' => 'nullable|numeric',
+            'kelas' => 'required',
+            'id_kategori' => 'required|exists:kategori,id',
+            'subjek' => 'required',
+            'pesan' => 'required',
+            'lampiran' => 'nullable|file|max:2048',
+        ]);
+
+        // simpan / ambil siswa
+        $siswa = M_Siswa::firstOrCreate(
+            ['NIS' => $request->NIS],
+            [
+                'nama'  => $request->nama,
+                'kelas' => $request->kelas
+            ]
+        );
+
+        // upload lampiran
+        $file = null;
+        if ($request->hasFile('lampiran')) {
+            $file = $request->file('lampiran')->store('lampiran', 'public');
+        }
+
+        M_Aduan::create([
+            'nomor_aduan' => 'ADU-' . strtoupper(Str::random(8)),
+            'id_kategori' => $request->id_kategori,
+            'id_siswa'    => $siswa->id,
+            'subjek'      => $request->subjek,
+            'pesan'       => $request->pesan,
+            'lampiran'    => $file,
+            'status'      => 'menunggu'
+        ]);
+
+        return redirect()->back()
+            ->with('success', 'Aduan berhasil dikirim');
+
     }
 
     /**

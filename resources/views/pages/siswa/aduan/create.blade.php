@@ -7,51 +7,56 @@
     <div class="card-body">
       <h4 class="card-title">Kirim Aduan Suara</h4>
 
-      <form action="{{ route('aduan.store') }}" method="post">
+      <form action="{{ route('aduan.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
 
         <div class="mb-3">
           <label for="nama" class="form-label">Nama Lengkap</label>
-          <input type="text" class="form-control" id="nama">
+          <input type="text" class="form-control" name="nama">
           <div id="namaHelp" class="form-text">Isikan nama lengkap sesuai identitas siswa.</div>
         </div>
 
         <div class="mb-3">
           <label for="kelas" class="form-label">Kelas</label>
-          <input type="text" class="form-control" id="kelas">
+          <input type="text" class="form-control" name="kelas">
           <div id="kelas" class="form-text">Isikan kelas yang sesuai.</div>
         </div>
 
         <div class="mb-3">
-          <label for="nis" class="form-label">NIS</label>
-          <input type="text" class="form-control" id="nis">
-          <div id="nis" class="form-text">Isikan nama lengkap sesuai Nomer Induk Siswa.</div>
+          <label for="NIS" class="form-label">NIS</label>
+          <input type="text" class="form-control" name="NIS">
+          <div id="NIS" class="form-text">Isikan nama lengkap sesuai Nomer Induk Siswa.</div>
         </div>
         
         <div class="mb-3">
           <label for="kategori" class="form-label">Kategori</label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">Laporan Insiden</option>
-            <option value="2">Manajemen Sekolah</option>
+          <select class="form-select" name="id_kategori">
+            @foreach ($kategori as $item)
+            <option value="{{ $item->id }}"
+                {{ old('id_kategori') == $item->id ? 'selected' : '' }}>
+                {{ $item->nama }}
+            </option>
+            @endforeach
           </select>
           <div id="kategori" class="form-text">Pilih tipe aduan.</div>
         </div>
 
         <div class="mb-3">
-          <label for="Pesan" class="form-label">Pesan</label>
-          <textarea type="text" class="form-control" id="Pesan"></textarea>
-          <div id="Pesan" class="form-text">Deskripsikan aduan secara ringkas dan jelas.</div>
+          <label for="subjek" class="form-label">Subjek</label>
+          <input type="text" class="form-control" name="subjek">
+          <div id="NIS" class="form-text">Isikan subjek/judul aduan.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="pesan" class="form-label">Pesan</label>
+          <textarea type="text" class="form-control" name="pesan"></textarea>
+          <div id="pesan" class="form-text">Deskripsikan aduan secara ringkas dan jelas.</div>
         </div>
 
         <div class="mb-3">
           <label for="lampiran" class="form-label">Lampiran</label>
            <input type="file" name="lampiran" class="form-control mt-2">
-          <div id="lampiran" class="form-text">File laporan / bukti aduan pendukung yang relevan.</div>
-        </div>
-
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Dengan ini, saya sudah menyetujui 
-            segala ketentuan layanan dan kebijakan privasi yang ada.</label>
+          <div name="lampiran" class="form-text">File laporan / bukti aduan pendukung yang relevan.</div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
 

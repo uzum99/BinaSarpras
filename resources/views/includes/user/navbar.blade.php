@@ -13,7 +13,7 @@
             <a class="nav-link" href="{{ route('about') }}">About Us</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('tiket-aduan') }}" class="btn btn-primary">Aduan Suara</a>
+            <a href="{{ route('aduan.index') }}" class="btn btn-primary">Aduan Suara</a>
           </li>
         </ul>
       </div>
