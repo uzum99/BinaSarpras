@@ -22,6 +22,6 @@ class M_Siswa extends Model
      */
     public function aduan()
     {
-        return $this->hasMany(Aduan::class, 'id_siswa');
+        return $this->hasMany(M_Aduan::class, 'id_siswa');
     }
 }

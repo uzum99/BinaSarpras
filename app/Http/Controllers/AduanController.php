@@ -25,7 +25,7 @@ class AduanController extends Controller
     public function create()
     {
         $kategori = M_Kategori::all();
-        return view ('pages.siswa.aduan.create', compact('kategori'));
+        return view('pages.siswa.aduan.create', compact('kategori'));
     }
 
     /**
@@ -58,8 +58,12 @@ class AduanController extends Controller
             $file = $request->file('lampiran')->store('lampiran', 'public');
         }
 
-        M_Aduan::create([
-            'nomor_aduan' => 'ADU-' . strtoupper(Str::random(8)),
+        // generate nomor tiket
+        $nomorTiket = 'CSRT' . now()->format('Ymd') . rand(1000, 9999);
+
+        // simpan aduan
+        $aduan = M_Aduan::create([
+            'nomor_aduan' => $nomorTiket,
             'id_kategori' => $request->id_kategori,
             'id_siswa'    => $siswa->id,
             'subjek'      => $request->subjek,
@@ -68,8 +72,22 @@ class AduanController extends Controller
             'status'      => 'menunggu'
         ]);
 
-        return redirect()->back()
-            ->with('success', 'Aduan berhasil dikirim');
+        // redirect ke halaman sukses
+        return redirect()->route('aduan.sukses', $aduan->id);
+
+        // M_Aduan::create([
+        //     'nomor_aduan' => 'ADU-' . strtoupper(Str::random(8)),
+        //     'id_kategori' => $request->id_kategori,
+        //     'id_siswa'    => $siswa->id,
+        //     'subjek'      => $request->subjek,
+        //     'pesan'       => $request->pesan,
+        //     'lampiran'    => $file,
+        //     'status'      => 'menunggu'
+        // ]);
+
+        // return redirect()->back()
+        //     ->with('success', 'Aduan berhasil dikirim');
+
 
     }
 
@@ -103,5 +121,11 @@ class AduanController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function sukses($id)
+    {
+        $aduan = M_Aduan::findOrFail($id);
+        return view('pages.siswa.aduan.info', compact('aduan'));
     }
 }

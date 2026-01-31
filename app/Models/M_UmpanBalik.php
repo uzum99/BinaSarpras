@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class M_UmpanBalik extends Model
 {
     public function aduan()
     {
-        return $this->belongsTo(Aduan::class, 'id_aduan');
+        return $this->belongsTo(M_Aduan::class, 'id_aduan');
     }
 
     public function user()

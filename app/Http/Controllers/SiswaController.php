@@ -15,9 +15,5 @@ class SiswaController extends Controller
     {
         return view('pages.siswa.about');
     }
-
-    // public function tiket()
-    // {
-    //     return view('pages.siswa.aduan.index');
-    // }
+    
 }

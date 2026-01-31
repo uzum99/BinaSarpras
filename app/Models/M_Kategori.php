@@ -20,6 +20,6 @@ class M_Kategori extends Model
      */
     public function aduan()
     {
-        return $this->hasMany(Aduan::class, 'id_kategori');
+        return $this->hasMany(M_Aduan::class, 'id_kategori');
     }
 }
