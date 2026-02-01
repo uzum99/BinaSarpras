@@ -24,11 +24,11 @@
     </h4>
 
     <div class="mt-4">
-        <a href="{{ url('/aduan') }}" class="btn btn-primary me-2">
-            Kirim Tiket Aduan
+        <a href="{{ route('aduan.create') }}" class="btn btn-primary me-2">
+            Kirim Aduan
         </a>
 
-        <a href="{{ url('/lacak-aduan') }}" class="btn btn-outline-primary">
+        <a href="{{ route('aduan.index') }}" class="btn btn-outline-primary">
             Lacak Tiket Aduan
         </a>
     </div>
