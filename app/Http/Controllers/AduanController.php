@@ -59,7 +59,7 @@ class AduanController extends Controller
         }
 
         // generate nomor tiket
-        $nomorTiket = 'CSRT' . now()->format('Ymd') . rand(1000, 9999);
+        $nomorTiket = 'ADUAN' . now()->format('Ymd') . rand(1000, 9999);
 
         // simpan aduan
         $aduan = M_Aduan::create([
@@ -74,30 +74,12 @@ class AduanController extends Controller
 
         // redirect ke halaman sukses
         return redirect()->route('aduan.sukses', $aduan->id);
-
-        // M_Aduan::create([
-        //     'nomor_aduan' => 'ADU-' . strtoupper(Str::random(8)),
-        //     'id_kategori' => $request->id_kategori,
-        //     'id_siswa'    => $siswa->id,
-        //     'subjek'      => $request->subjek,
-        //     'pesan'       => $request->pesan,
-        //     'lampiran'    => $file,
-        //     'status'      => 'menunggu'
-        // ]);
-
-        // return redirect()->back()
-        //     ->with('success', 'Aduan berhasil dikirim');
-
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    public function show(Request $request) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -127,5 +109,25 @@ class AduanController extends Controller
     {
         $aduan = M_Aduan::findOrFail($id);
         return view('pages.siswa.aduan.info', compact('aduan'));
+    }
+
+    public function lacak(Request $request)
+    {
+
+        //dd($request->nomor_aduan);
+        $request->validate([
+            'nomor_aduan' => 'required'
+        ]);
+
+        $aduan = M_Aduan::with(['kategori', 'siswa', 'umpanBalik.user'])
+            ->where('nomor_aduan', $request->nomor_aduan)
+            ->first();
+
+        if (!$aduan) {
+            return back()->with('error', 'Nomor tiket aduan tidak ditemukan');
+        }
+
+        // SATU HALAMAN DETAIL
+        return view('pages.siswa.aduan.detail', compact('aduan'));
     }
 }

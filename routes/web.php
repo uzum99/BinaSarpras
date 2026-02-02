@@ -16,9 +16,8 @@ Route::get('about', [SiswaController::class, 'about'])->name('about');
 //Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');
 
 Route::resource('aduan', AduanController::class);
-Route::get('/aduan-sukses/{id}', [AduanController::class, 'sukses'])
-    ->name('aduan.sukses');
-
+Route::get('/aduan-sukses/{id}', [AduanController::class, 'sukses'])->name('aduan.sukses');
+Route::post('/aduan/lacak', [AduanController::class, 'lacak'])->name('aduan.lacak');
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
 
