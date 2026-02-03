@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\M_Aduan;
+use App\Models\M_Kategori;
+use App\Models\M_Siswa;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +14,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.aduan.index');
+        $aduan = M_Aduan::all();
+        return view('pages.admin.aduan.index', compact('aduan'));
     }
 
     /**

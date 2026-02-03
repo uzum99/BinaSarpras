@@ -2,35 +2,39 @@
 
 @section('content')
 
-<table class="table">
+<div class="container">
+
+  <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Nomor Aduan</th>
+      <th scope="col">Kategori</th>
+      <th scope="col">Nama Pengirim</th>
+      <th scope="col">Subjek</th>
+      <th scope="col">Pesan</th>
+      <th scope="col">Lampiran</th>
+      <th scope="col">Status</th>
+      <th scope="col">Aksi</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($aduan as $item)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{ $loop->iteration}}</th>
+      <td>{{ $item->nomor_aduan }}</td>
+      <td>{{ $item->kategori->nama }}</td>
+      <td>{{ $item->siswa->nama }}</td>
+      <td>{{ $item->subjek }}</td>
+      <td>{{ $item->pesan }}</td>
+      <td>{{ $item->lampiran }}</td>
+      <td>{{ $item->status }}</td>
+      <td> <a href="#" class="btn btn-primary">detail</a> </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>John</td>
-      <td>Doe</td>
-      <td>@social</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
+
+</div>
 
 @endsection

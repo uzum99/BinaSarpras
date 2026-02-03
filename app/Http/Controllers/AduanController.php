@@ -113,8 +113,6 @@ class AduanController extends Controller
 
     public function lacak(Request $request)
     {
-
-        //dd($request->nomor_aduan);
         $request->validate([
             'nomor_aduan' => 'required'
         ]);

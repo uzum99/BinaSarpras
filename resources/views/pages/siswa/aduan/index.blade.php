@@ -9,7 +9,7 @@
     <h1>Lacak Tiket Aduan</h1>
     <p class="tiket">Silahkan masukkan nomer tiket anda untuk melihat proses tiket aduan.</p>
 
-    <form action="{{ route('aduan.lacak')}}" class="banner_search_form" method="POST">
+    <form action="{{ route('aduan.lacak') }}" class="banner_search_form" method="POST">
       @csrf
       <div class="input-group input-group-lg w-50 mx-auto">
         <input class="form-control form-control-lg w-50 mx-auto" 
