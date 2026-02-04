@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('admin.index');
+            return redirect()->route('admin.index');
         }else{
             return view('auth.login');
         }
@@ -19,17 +19,20 @@ class LoginController extends Controller
 
     public function actionlogin(Request $request)
     {
-        $data = [
-            'email' => $request->input('email'),
-            'password' => $request->input('password'),
-        ];
-
-        if (Auth::Attempt($data)) {
-            return redirect('admin.index');
-        }else{
-            Session::flash('error', 'Email atau Password Salah');
-            return redirect('/');
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+ 
+            return redirect()->route('admin.index');
         }
+ 
+        return back()->withErrors([
+            'email' => 'Email atau Password salah.',
+        ])->onlyInput('email');
     }
 
     public function actionlogout()

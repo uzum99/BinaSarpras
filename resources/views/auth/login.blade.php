@@ -12,14 +12,31 @@
     <div class="container">
         <div class="card w-50 mx-auto">
             <main class="form-signin w-50 m-auto">
-                <form> 
+                <form action="{{ route('actionlogin') }}" method="POST"> 
+                    @csrf
                     <img class="mb-4" src="{{ asset('img/logo_icon.png') }}" alt="" width="72" height="57">
                     <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
-                    <div class="form-floating"> <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> <label for="floatingInput">Email address</label> </div>
-                    <div class="form-floating"> <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> <label for="floatingPassword">Password</label> </div>
-                    <div class="form-check text-start my-3"> <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault"> <label class="form-check-label" for="checkDefault">
+                    <div class="form-floating"> 
+                        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"> 
+                        <label for="floatingInput">Email address</label> 
+                    </div>
+                    @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-floating"> 
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password"> 
+                        <label for="floatingPassword">Password</label> 
+                    </div>
+                    @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    <div class="form-check text-start my-3"> 
+                        <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault"> 
+                        <label class="form-check-label" for="checkDefault">
                             Remember me
-                        </label> </div> <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+                        </label> 
+                    </div> 
+                    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
                    
                     <p class="mt-5 mb-5 text-body-secondary">© UKK RPL 2026</p>
                 </form>
