@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AduanController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiswaController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,12 +15,41 @@ Route::get('/', function () {
 //SISWA
 Route::get('home', [SiswaController::class, 'home'])->name('home');
 Route::get('about', [SiswaController::class, 'about'])->name('about');
-//Route::get('tiket-aduan', [SiswaController::class, 'tiket'])->name('tiket-aduan');
 
 Route::resource('aduan', AduanController::class);
 Route::get('/aduan-sukses/{id}', [AduanController::class, 'sukses'])->name('aduan.sukses');
 Route::post('/aduan/lacak', [AduanController::class, 'lacak'])->name('aduan.lacak');
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
-Route::resource('admin', AdminController::class);
+
+// Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//wajib pakai middleware karna akses route Admin wajib login
+// Route::middleware(['auth'])
+//     ->prefix('admin')
+//     ->name('admin.')
+//     ->group(function () {
+
+//         Route::get('/', [AdminController::class, 'index'])->name('index');
+//         Route::get('/{id}', [AdminController::class, 'show'])->name('show');
+
+//         Route::put('/{id}/status', [AdminController::class, 'updateStatus'])->name('status');
+//         Route::post('/{id}/feedback', [AdminController::class, 'storeFeedback'])->name('feedback');
+// });
+
+Route::prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/', [AdminController::class, 'index'])->name('index');
+        Route::get('/{id}', [AdminController::class, 'show'])->name('show');
+
+        Route::put('/{id}/status', [AdminController::class, 'updateStatus'])->name('status');
+        Route::post('/{id}/feedback', [AdminController::class, 'storeFeedback'])->name('feedback');
+});

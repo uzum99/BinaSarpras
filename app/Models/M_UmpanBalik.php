@@ -12,6 +12,8 @@ class M_UmpanBalik extends Model
     protected $table = 'umpan_balik';
 
     protected $fillable = [
+        'id_aduan',
+        'id_user',
         'feedback',
     ];
 
