@@ -30,8 +30,7 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_kategori' => 'required|string|max:100',
-            'deskripsi' => 'nullable|string'
+            'nama' => 'required|string|max:100',
         ]);
 
         M_Kategori::create($request->all());
@@ -64,8 +63,7 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_kategori' => 'required|string|max:100',
-            'deskripsi' => 'nullable|string'
+            'nama' => 'required|string|max:100',
         ]);
 
         $kategori = M_Kategori::findOrFail($id);

@@ -8,16 +8,19 @@
                 </svg>
                 Home
             </a> </li>
+
         <li> <a href="{{ route('kategori.index')}}" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#speedometer2"></use>
                 </svg>
                 Kategori
             </a> </li>
-        <li> <a href="#" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+
+        <li> <a href="{{ route('user.index') }}" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#table"></use>
                 </svg>
                 Kelola User
             </a> </li>
+
         <li> <a href="{{ route('admin.index') }}" class="nav-link text-white"> <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
                     <use xlink:href="#grid"></use>
                 </svg>

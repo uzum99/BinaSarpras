@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AduanController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\SiswaController;
 
 use Illuminate\Support\Facades\Route;
@@ -29,6 +29,7 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 
 
 Route::resource('kategori', KategoriController::class);
+Route::resource('user', ManageAdminController::class);                                                                               
 
 Route::middleware(['auth'])
     ->prefix('admin')
