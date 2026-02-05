@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AduanController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SiswaController;
 
@@ -27,22 +28,7 @@ Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actio
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
 
-// Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-//wajib pakai middleware karna akses route Admin wajib login
-// Route::middleware(['auth'])
-//     ->prefix('admin')
-//     ->name('admin.')
-//     ->group(function () {
-
-//         Route::get('/', [AdminController::class, 'index'])->name('index');
-//         Route::get('/{id}', [AdminController::class, 'show'])->name('show');
-
-//         Route::put('/{id}/status', [AdminController::class, 'updateStatus'])->name('status');
-//         Route::post('/{id}/feedback', [AdminController::class, 'storeFeedback'])->name('feedback');
-// });
+Route::resource('kategori', KategoriController::class);
 
 Route::middleware(['auth'])
     ->prefix('admin')
