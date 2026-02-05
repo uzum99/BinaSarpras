@@ -8,9 +8,11 @@ use App\Http\Controllers\SiswaController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [SiswaController::class, 'home'])->name('home');
+//Route::get('/', [LoginController::class, 'login'])->name('login');
 
 //SISWA
 Route::get('home', [SiswaController::class, 'home'])->name('home');
@@ -21,7 +23,6 @@ Route::get('/aduan-sukses/{id}', [AduanController::class, 'sukses'])->name('adua
 Route::post('/aduan/lacak', [AduanController::class, 'lacak'])->name('aduan.lacak');
 
 Route::get('login', [LoginController::class, 'login'])->name('login');
-Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
 
@@ -43,7 +44,8 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 //         Route::post('/{id}/feedback', [AdminController::class, 'storeFeedback'])->name('feedback');
 // });
 
-Route::prefix('admin')
+Route::middleware(['auth'])
+    ->prefix('admin')
     ->name('admin.')
     ->group(function () {
 
