@@ -8,6 +8,7 @@ use App\Http\Controllers\ManageAdminController;
 use App\Http\Controllers\SiswaController;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -29,7 +30,8 @@ Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('acti
 
 
 Route::resource('kategori', KategoriController::class);
-Route::resource('user', ManageAdminController::class);                                                                               
+Route::resource('user', ManageAdminController::class);
+Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');                                                                               
 
 Route::middleware(['auth'])
     ->prefix('admin')
